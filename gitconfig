@@ -1,0 +1,7 @@
+[credential]
+        helper = store
+[user]
+        email = iuri@skyscrapers.eu
+        name = iuri aranda
+[push]
+        default = simple
