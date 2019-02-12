@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/iuri/.oh-my-zsh
+export ZSH=/home/iuri/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -95,6 +95,7 @@ export PATH=$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:$P
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias keybase="keybase --standalone"
+alias k='kubectl $@'
 
 eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 
@@ -111,3 +112,13 @@ if [[ -f /proc/version ]] && grep --quiet Microsoft /proc/version; then
 fi
 
 source aws_zsh_completer.sh
+
+tf() { terraform "$@" $TF_STACK_PATH;}
+
+export PATH="$HOME/.tfenv/bin:$PATH"
+
+export GOPATH="$HOME/projects/go"
+
+export PATH="$GOPATH/bin:$PATH"
+
+export DOCKER_HOST="tcp://localhost:2375"
