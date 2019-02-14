@@ -51,23 +51,32 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
+KUBE_PS1_SYMBOL_ENABLE=false
+
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=/home/iuri/.dotfiles/custom-oh-my-zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+#  aws
   git
   ssh-agent
+  kubectl
+  terraform
+  kube-ps1
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:$PATH
+export GOPATH="$HOME/projects/go"
+
+export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -95,7 +104,6 @@ export PATH=$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:$P
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias keybase="keybase --standalone"
-alias k='kubectl $@'
 
 eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 
@@ -111,14 +119,8 @@ if [[ -f /proc/version ]] && grep --quiet Microsoft /proc/version; then
   export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
 fi
 
-source aws_zsh_completer.sh
+#source aws_zsh_completer.sh
 
 tf() { terraform "$@" $TF_STACK_PATH;}
-
-export PATH="$HOME/.tfenv/bin:$PATH"
-
-export GOPATH="$HOME/projects/go"
-
-export PATH="$GOPATH/bin:$PATH"
 
 export DOCKER_HOST="tcp://localhost:2375"
