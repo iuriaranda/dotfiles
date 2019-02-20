@@ -124,3 +124,4 @@ fi
 tf() { terraform "$@" $TF_STACK_PATH;}
 
 export DOCKER_HOST="tcp://localhost:2375"
+umask 002
