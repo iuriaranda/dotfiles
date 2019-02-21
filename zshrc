@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/iuri/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,10 +51,8 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-KUBE_PS1_SYMBOL_ENABLE=false
-
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=/home/iuri/.dotfiles/custom-oh-my-zsh
+ZSH_CUSTOM="$HOME/.dotfiles/custom-oh-my-zsh"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -64,10 +62,12 @@ plugins=(
 #  aws
   git
   ssh-agent
-  kubectl
   terraform
-  kube-ps1
 )
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,6 +104,9 @@ export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias keybase="keybase --standalone"
+# see https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
+alias watch='watch '
+alias k=kubectl
 
 eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 

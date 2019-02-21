@@ -20,10 +20,9 @@ else
   fi
 fi
 local git_branch='$(git_prompt_info)%{$reset_color%}'
-local kube_info='$(kube_ps1)'
 local tf_workspace='$FG[045]$(tf_prompt_info)%{$reset_color%}'
 
-PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch} ${kube_info} ${tf_workspace}
+PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch} ${tf_workspace}
 ╰─%B${user_symbol}%b "
 RPS1="%B${return_code}%b"
 
