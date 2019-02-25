@@ -32,3 +32,9 @@
         relink: false
         force: false
     ~/.tmux.conf: .tmux.conf
+
+- shell:
+  - ['sudo apt update', Updating APT sources...]
+  - ['sudo apt -y install build-essential git gnupg2 gnupg-agent pinentry-curses tmux', Installing APT packages...]
+  - ['sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"', Installing Linuxbrew...]
+  - ['brew bundle', Installing brew formulae...]
