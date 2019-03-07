@@ -103,28 +103,25 @@ export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias keybase="keybase --standalone"
+#alias keybase="keybase --standalone"
 # see https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 alias watch='watch '
 alias k=kubectl
 
-eval `dircolors ~/dircolors-solarized/dircolors.256dark`
+#eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 
 # === WSL WORKAROUNDS
 if [[ -f /proc/version ]] && grep --quiet Microsoft /proc/version; then
-  # Set correct umask
-  # https://github.com/Microsoft/WSL/issues/352
-  [[ "$(umask)" == '0000' ]] && umask 022
+  umask 002
 
   # Set browser to Chrome
   # https://stackoverflow.com/questions/41404536/why-is-bash-wsl-using-w3m-as-its-default-browser
   export DISPLAY=:0
   export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+
+  export DOCKER_HOST="tcp://localhost:2375"
 fi
 
 #source aws_zsh_completer.sh
 
 tf() { terraform "$@" $TF_STACK_PATH;}
-
-export DOCKER_HOST="tcp://localhost:2375"
-umask 002
