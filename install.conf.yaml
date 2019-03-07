@@ -1,4 +1,4 @@
-- clean: ['~']
+- clean: ["~"]
 
 - defaults:
     link:
@@ -6,35 +6,49 @@
       relink: true
 
 - link:
-    ~/.profile:
-        path: profile
-        create: false
-        relink: false
-        force: false
-    ~/.bashrc:
-        path: bashrc
-        create: false
-        relink: false
-        force: false
-    ~/.bash_logout:
-        path: bash_logout
-        create: false
-        relink: false
-        force: false
-    ~/.gitconfig:
-        path: gitconfig
-        create: false
-        relink: false
-        force: false
-    ~/.zshrc:
-        path: zshrc
-        create: false
-        relink: false
-        force: false
-    ~/.tmux.conf: .tmux.conf
+  ~/.profile:
+    path: profile
+    force: false
+  ~/.bashrc:
+    path: bashrc
+    force: false
+  ~/.bash_logout:
+    path: bash_logout
+    force: false
+  ~/.gitconfig:
+    path: gitconfig
+    force: false
+  ~/.zshrc:
+    path: zshrc
+    force: false
+  ~/.tmux.conf: .tmux.conf
+
+# Mac-specific links
+- link:
+    ~/Library/Application Support/Code/User/settings.json:
+      path: vscode_settings_mac.json
+      force: true
+      if: '[[ "$(uname)" == "Darwin" ]]'
+
+# Windows-specific links
+- link:
+    /mnt/c/Users/iuri/AppData/Roaming/Code/User/settings.json:
+      path: vscode_settings_win.json
+      force: true
+      if: "[[ -f /proc/version ]] && grep --quiet Microsoft /proc/version"
 
 - shell:
-  - ['sudo apt update', Updating APT sources...]
-  - ['sudo apt -y install build-essential git gnupg2 gnupg-agent pinentry-curses tmux', Installing APT packages...]
-  - ['sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"', Installing Linuxbrew...]
-  - ['brew bundle', Installing brew formulae...]
+    - command: "[[ ! -f /etc/lsb-release ]] || sudo apt update"
+      description: Updating APT sources...
+    - command: "[[ ! -f /etc/lsb-release ]] || sudo apt -y install build-essential gnupg-agent pinentry-curses"
+      description: Installing APT packages...
+    - command: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"'
+      description: Installing Linuxbrew...
+    - command: 'sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+      description: Installing oh-my-zsh...
+    - command: "brew bundle"
+      description: Installing brew formulae...
+
+- vscodefile:
+    file: Vscodefile
+    insiders: false
