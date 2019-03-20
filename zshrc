@@ -72,6 +72,17 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# locale settings, string mac/chinese/pycharm/git bug
+# https://coderwall.com/p/ehvc8w/set-lang-variable-in-osx-terminal-app
+export LANG="en_EN.UTF-8"
+export LC_COLLATE="en_EN.UTF-8"
+export LC_CTYPE="en_EN.UTF-8"
+export LC_MESSAGES="en_EN.UTF-8"
+export LC_MONETARY="en_EN.UTF-8"
+export LC_NUMERIC="en_EN.UTF-8"
+export LC_TIME="en_EN.UTF-8"
+export LC_ALL=
+
 export GOPATH="$HOME/projects/go"
 
 export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:$PATH
