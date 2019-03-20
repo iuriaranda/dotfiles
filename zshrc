@@ -59,7 +59,6 @@ ZSH_CUSTOM="$HOME/.dotfiles/custom-oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-#  aws
   git
   ssh-agent
   terraform
@@ -121,7 +120,5 @@ if [[ -f /proc/version ]] && grep --quiet Microsoft /proc/version; then
 
   export DOCKER_HOST="tcp://localhost:2375"
 fi
-
-#source aws_zsh_completer.sh
 
 tf() { terraform "$@" $TF_STACK_PATH;}
