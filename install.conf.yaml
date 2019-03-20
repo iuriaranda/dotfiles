@@ -50,5 +50,5 @@
       description: Installing brew formulae...
 
 - vscodefile:
-    file: Vscodefile
+    file: vscodefile
     insiders: false
