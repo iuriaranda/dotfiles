@@ -24,7 +24,7 @@ local tf_workspace='$FG[045]$(tf_prompt_info)%{$reset_color%}'
 
 PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch} ${tf_workspace}
 ╰─%B${user_symbol}%b "
-RPS1="%B${return_code}%b"
+#RPS1="%B${return_code}%b"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
