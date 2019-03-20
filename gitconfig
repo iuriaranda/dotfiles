@@ -5,3 +5,5 @@
         name = iuri aranda
 [push]
         default = simple
+[core]
+        ignorecase = false
