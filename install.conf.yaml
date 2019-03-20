@@ -6,22 +6,22 @@
       relink: true
 
 - link:
-  ~/.profile:
-    path: profile
-    force: false
-  ~/.bashrc:
-    path: bashrc
-    force: false
-  ~/.bash_logout:
-    path: bash_logout
-    force: false
-  ~/.gitconfig:
-    path: gitconfig
-    force: false
-  ~/.zshrc:
-    path: zshrc
-    force: false
-  ~/.tmux.conf: .tmux.conf
+    ~/.profile:
+      path: profile
+      force: false
+    ~/.bashrc:
+      path: bashrc
+      force: false
+    ~/.bash_logout:
+      path: bash_logout
+      force: false
+    ~/.gitconfig:
+      path: gitconfig
+      force: false
+    ~/.zshrc:
+      path: zshrc
+      force: false
+    ~/.tmux.conf: tmux.conf
 
 # Mac-specific links
 - link:
