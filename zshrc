@@ -84,7 +84,7 @@ export LC_ALL=
 
 export GOPATH="$HOME/projects/go"
 
-export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:/usr/local/sbin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
