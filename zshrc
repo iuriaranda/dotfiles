@@ -86,6 +86,14 @@ export GOPATH="$HOME/projects/go"
 
 export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:/usr/local/sbin:$PATH
 
+export HISTORY_IGNORE='(vault*)'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/gcloud-sdk/path.zsh.inc" ]; then . "$HOME/gcloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/gcloud-sdk/completion.zsh.inc" ]; then . "$HOME/gcloud-sdk/completion.zsh.inc"; fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
