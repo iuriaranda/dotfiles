@@ -22,6 +22,7 @@
       path: zshrc
       force: false
     ~/.tmux.conf: tmux.conf
+    ~/.terraformrc: terraformrc
 
 # Mac-specific links
 - link:

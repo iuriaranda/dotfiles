@@ -124,6 +124,7 @@ if [ -f "$HOME/gcloud-sdk/completion.zsh.inc" ]; then . "$HOME/gcloud-sdk/comple
 # see https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 alias watch='watch '
 alias k=kubectl
+alias kdashboard='kubectl auth-proxy -n kube-system https://kubernetes-dashboard.svc'
 
 #eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 
@@ -138,5 +139,3 @@ if [[ -f /proc/version ]] && grep --quiet Microsoft /proc/version; then
 
   export DOCKER_HOST="tcp://localhost:2375"
 fi
-
-tf() { terraform "$@" $TF_STACK_PATH;}

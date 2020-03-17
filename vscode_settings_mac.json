@@ -11,7 +11,7 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.formatOnPaste": true,
   "editor.fontSize": 13,
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "atomKeymap.promptV3Features": true,
   "window.zoomLevel": 0,
   "explorer.confirmDragAndDrop": false,
@@ -23,12 +23,27 @@
   "git.autofetch": true,
   "gitlens.advanced.telemetry.enabled": false,
   "gitlens.blame.compact": true,
-  "gitlens.codeLens.enabled": false,
   "markdownlint.config": {
     "MD013": false,
     "MD024": {
       "siblings_only": true
     }
   },
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "terraform.indexing": {
+    "enabled": false,
+    "liveIndexing": false,
+    "delay": 500,
+    "exclude": [
+      "**/*"
+    ]
+  },
+  "terraform.languageServer": {
+    "enabled": true,
+    "args": []
+  },
+  "vscode-kms": {
+    "defaultRegion": "eu-west-1"
+  },
+  "diffEditor.ignoreTrimWhitespace": false
 }
