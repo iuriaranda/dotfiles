@@ -3,7 +3,9 @@ function tf_prompt_info() {
     [[ "$PWD" == ~ ]] && return
     # check if in terraform dir
     if [ -d .terraform ]; then
-      workspace=$(terraform workspace show 2> /dev/null) || return
-      echo "[${workspace}]"
+      if [ -f .terraform/environment ]; then
+        workspace=$(cat .terraform/environment 2> /dev/null) || return
+      fi
+      echo "[${workspace:-default}]"
     fi
 }
