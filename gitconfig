@@ -7,3 +7,5 @@
         default = simple
 [core]
         ignorecase = false
+[pull]
+	rebase = true
