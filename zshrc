@@ -64,9 +64,17 @@ plugins=(
   aws-vault
 )
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
+# Enable Homebrew autocompletion
+FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+# aws-vault config
+export AWS_VAULT_PROMPT=ykman
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/gcloud-sdk/path.zsh.inc" ]; then . "$HOME/gcloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/gcloud-sdk/completion.zsh.inc" ]; then . "$HOME/gcloud-sdk/completion.zsh.inc"; fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,15 +93,9 @@ export LC_ALL=
 
 export GOPATH="$HOME/projects/go"
 
-export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:/usr/local/sbin:$HOME/.krew/bin:$PATH
 
 export HISTORY_IGNORE='(vault*)'
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/gcloud-sdk/path.zsh.inc" ]; then . "$HOME/gcloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/gcloud-sdk/completion.zsh.inc" ]; then . "$HOME/gcloud-sdk/completion.zsh.inc"; fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -126,6 +128,7 @@ if [ -f "$HOME/gcloud-sdk/completion.zsh.inc" ]; then . "$HOME/gcloud-sdk/comple
 alias watch='watch '
 alias k=kubectl
 alias kdashboard='kubectl auth-proxy -n kube-system https://kubernetes-dashboard.svc'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 #eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 
@@ -139,4 +142,9 @@ if [[ -f /proc/version ]] && grep --quiet Microsoft /proc/version; then
   export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
 
   export DOCKER_HOST="tcp://localhost:2375"
+fi
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+if [ -d "$HOME/adb-fastboot/platform-tools" ] ; then
+ export PATH="$HOME/adb-fastboot/platform-tools:$PATH"
 fi
