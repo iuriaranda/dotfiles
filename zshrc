@@ -61,6 +61,7 @@ ZSH_CUSTOM="$HOME/.dotfiles/custom-oh-my-zsh"
 plugins=(
   ssh-agent
   terraform
+  aws-vault
 )
 
 if type brew &>/dev/null; then
