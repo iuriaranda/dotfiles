@@ -8,4 +8,4 @@
 [core]
         ignorecase = false
 [pull]
-	rebase = true
+        rebase = true

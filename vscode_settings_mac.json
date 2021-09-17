@@ -30,7 +30,7 @@
   },
   "git.enableSmartCommit": true,
   "vscode-kms": {
-    "defaultRegion": "eu-central-1"
+    "defaultRegion": "eu-west-1"
   },
   "diffEditor.ignoreTrimWhitespace": false,
   "go.formatTool": "goimports",
@@ -41,7 +41,9 @@
     "vs-kubernetes.kubectl-path.mac": "/Users/iuri/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.helm-path.mac": "/Users/iuri/.vs-kubernetes/tools/helm/darwin-amd64/helm",
     "vs-kubernetes.draft-path.mac": "/Users/iuri/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-    "vscode-kubernetes.minikube-path.mac": "/Users/iuri/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    "vscode-kubernetes.minikube-path.mac": "/Users/iuri/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+    "vscode-kubernetes.helm-path.mac": "/Users/iuri/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+    "vscode-kubernetes.kubectl-path.mac": "/Users/iuri/.vs-kubernetes/tools/kubectl/kubectl"
   },
   "terraform.languageServer": {
     "external": true,
@@ -63,5 +65,6 @@
     "stash-push:command",
     "switch:command",
     "branch-create:command"
-  ]
+  ],
+  "redhat.telemetry.enabled": false
 }
