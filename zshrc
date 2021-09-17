@@ -62,6 +62,7 @@ plugins=(
   ssh-agent
   terraform
   aws-vault
+  fubectl
 )
 
 # Enable Homebrew autocompletion
@@ -69,12 +70,6 @@ FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
 # aws-vault config
 export AWS_VAULT_PROMPT=ykman
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/gcloud-sdk/path.zsh.inc" ]; then . "$HOME/gcloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/gcloud-sdk/completion.zsh.inc" ]; then . "$HOME/gcloud-sdk/completion.zsh.inc"; fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -148,3 +143,9 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 if [ -d "$HOME/adb-fastboot/platform-tools" ] ; then
  export PATH="$HOME/adb-fastboot/platform-tools:$PATH"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/iuri/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/iuri/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/iuri/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/iuri/google-cloud-sdk/completion.zsh.inc'; fi

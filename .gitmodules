@@ -4,3 +4,6 @@
 [submodule "dotbot-vscode"]
 	path = dotbot-vscode
 	url = https://github.com/hujianxin/dotbot-vscode
+[submodule "custom-oh-my-zsh/plugins/fubectl"]
+	path = custom-oh-my-zsh/plugins/fubectl
+	url = git@github.com:kubermatic/fubectl.git
