@@ -22,21 +22,6 @@
       path: zshrc
       force: false
     ~/.tmux.conf: tmux.conf
-    ~/.terraformrc: terraformrc
-
-# Mac-specific links
-- link:
-    ~/Library/Application Support/Code/User/settings.json:
-      path: vscode_settings_mac.json
-      force: true
-      if: '[[ "$(uname)" == "Darwin" ]]'
-
-# Windows-specific links
-- link:
-    /mnt/c/Users/iuri/AppData/Roaming/Code/User/settings.json:
-      path: vscode_settings_win.json
-      force: true
-      if: "[[ -f /proc/version ]] && grep --quiet Microsoft /proc/version"
 
 - shell:
     - command: "[[ ! -f /etc/lsb-release ]] || sudo apt update"
@@ -51,7 +36,3 @@
       description: Installing brew formulae...
     - command: "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
       description: Installing Tmux Plugin Manager...
-
-- vscodefile:
-    file: vscodefile
-    insiders: false
