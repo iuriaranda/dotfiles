@@ -63,6 +63,7 @@ plugins=(
   terraform
   aws-vault
   fubectl
+  zsh-aws-vault
 )
 
 # Enable Homebrew autocompletion

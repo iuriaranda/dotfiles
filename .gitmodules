@@ -7,3 +7,6 @@
 [submodule "custom-oh-my-zsh/plugins/fubectl"]
 	path = custom-oh-my-zsh/plugins/fubectl
 	url = git@github.com:kubermatic/fubectl.git
+[submodule "custom-oh-my-zsh/plugins/zsh-aws-vault"]
+	path = custom-oh-my-zsh/plugins/zsh-aws-vault
+	url = git@github.com:blimmer/zsh-aws-vault.git
