@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -89,9 +91,9 @@ export LC_ALL=
 
 export GOPATH="$HOME/projects/go"
 
-export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/projects/skyscrapers/skyscrapers-tools/bin:$HOME/.local/bin:/usr/local/sbin:$HOME/.krew/bin:$PATH
+export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/.local/bin:/usr/local/sbin:$HOME/.krew/bin:$PATH
 
-export HISTORY_IGNORE='(vault*)'
+# export HISTORY_IGNORE='(vault*)'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -123,10 +125,14 @@ export HISTORY_IGNORE='(vault*)'
 # see https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 alias watch='watch '
 alias k=kubectl
-alias kdashboard='kubectl auth-proxy -n kube-system https://kubernetes-dashboard.svc'
+alias kdashboard='kubectl auth-proxy -n kubernetes-dashboard https://kubernetes-dashboard.svc'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias tg=terragrunt
+alias copy='xclip -selection clipboard'
 
 #eval `dircolors ~/dircolors-solarized/dircolors.256dark`
+
+tf-docs () { terraform-docs markdown --indent 3 --sort-by required $1 | xclip -selection clipboard }
 
 # === WSL WORKAROUNDS
 if [[ -f /proc/version ]] && grep --quiet Microsoft /proc/version; then

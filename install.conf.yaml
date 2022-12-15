@@ -20,15 +20,15 @@
       force: false
     ~/.zshrc:
       path: zshrc
-      force: false
+      force: true
     ~/.tmux.conf: tmux.conf
 
 - shell:
     - command: "[[ ! -f /etc/lsb-release ]] || sudo apt update"
       description: Updating APT sources...
-    - command: "[[ ! -f /etc/lsb-release ]] || sudo apt -y install build-essential gnupg-agent pinentry-curses"
+    - command: "[[ ! -f /etc/lsb-release ]] || sudo apt -y install build-essential gnupg-agent pinentry-curses zsh"
       description: Installing APT packages...
-    - command: 'if [[ "$(uname)" == "Darwin" ]]; then /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; else sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"; fi'
+    - command: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
       description: Installing Homebrew/Linuxbrew...
     - command: 'sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
       description: Installing oh-my-zsh...
