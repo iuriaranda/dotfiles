@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export SHELL=/usr/bin/zsh
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -78,27 +80,37 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# locale settings, string mac/chinese/pycharm/git bug
-# https://coderwall.com/p/ehvc8w/set-lang-variable-in-osx-terminal-app
-export LANG="en_EN.UTF-8"
-export LC_COLLATE="en_EN.UTF-8"
-export LC_CTYPE="en_EN.UTF-8"
-export LC_MESSAGES="en_EN.UTF-8"
-export LC_MONETARY="en_EN.UTF-8"
-export LC_NUMERIC="en_EN.UTF-8"
-export LC_TIME="en_EN.UTF-8"
-export LC_ALL=
-
 export GOPATH="$HOME/projects/go"
 
-export PATH=$HOME/.tfenv/bin:$GOPATH/bin:$HOME/.local/bin:/usr/local/sbin:$HOME/.krew/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/.poetry/bin" ] ; then
+    PATH="$HOME/.poetry/bin:$PATH"
+fi
+
+if [ -d "$HOME/.krew/bin" ] ; then
+    PATH="$HOME/.krew/bin:$PATH"
+fi
+
+if [ -d "$GOPATH/bin" ] ; then
+    PATH="$GOPATH/bin:$PATH"
+fi
+
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 # export HISTORY_IGNORE='(vault*)'
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -128,31 +140,15 @@ alias k=kubectl
 alias kdashboard='kubectl auth-proxy -n kubernetes-dashboard https://kubernetes-dashboard.svc'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias tg=terragrunt
+alias tf=terraform
 alias copy='xclip -selection clipboard'
 
 #eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 
 tf-docs () { terraform-docs markdown --indent 3 --sort-by required $1 | xclip -selection clipboard }
 
-# === WSL WORKAROUNDS
-if [[ -f /proc/version ]] && grep --quiet Microsoft /proc/version; then
-  umask 002
-
-  # Set browser to Chrome
-  # https://stackoverflow.com/questions/41404536/why-is-bash-wsl-using-w3m-as-its-default-browser
-  export DISPLAY=:0
-  export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
-
-  export DOCKER_HOST="tcp://localhost:2375"
-fi
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
 if [ -d "$HOME/adb-fastboot/platform-tools" ] ; then
  export PATH="$HOME/adb-fastboot/platform-tools:$PATH"
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/iuri/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/iuri/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/iuri/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/iuri/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -e /home/iuri/.nix-profile/etc/profile.d/nix.sh ]; then . /home/iuri/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
